@@ -26,9 +26,9 @@ export default function Footer() {
   ];
 
   const contactInfo = [
-    { icon: <Mail size={18} className="text-[#3ca2fa]" />, text: "hello@MAWB.com", href: "mailto:hello@MAWB.com" },
+    { icon: <Mail size={18} className="text-[#3ca2fa]" />, text: "wasaybaig617@gmail.com", href: "mailto:hello@MAWB.com" },
     { icon: <Phone size={18} className="text-[#3ca2fa]" />, text: "+1 (555) 000-0000", href: "tel:+15550000000" },
-    { icon: <MapPin size={18} className="text-[#3ca2fa]" />, text: "New York, USA" },
+    { icon: <MapPin size={18} className="text-[#3ca2fa]" />, text: "Karachi, Landhi" },
   ];
 
   return (
