@@ -1,9 +1,11 @@
-import { getPosts } from '@/lib/client';
+import { getPosts, searchPosts } from '@/lib/client';
 import { Header } from '@/components/Header';
 import { PostList } from '@/components/PostList';
 
-export default async function Home() {
-    const posts = await getPosts();
+export default async function Home(props: { searchParams: Promise<{ query?: string }> }) {
+    const searchParams = await props.searchParams;
+    const query = searchParams.query;
+    const posts = query ? await searchPosts(query) : await getPosts();
 
     return (
         <main className="min-h-screen bg-background text-foreground">
@@ -17,6 +19,12 @@ export default async function Home() {
                         Built with Next.js 15, Tailwind, and Framer Motion.
                     </p>
                 </div>
+                {query && (
+                    <div className="mb-8">
+                        <h2 className="text-2xl font-bold">Search results for "{query}"</h2>
+                        {posts.length === 0 && <p className="text-muted-foreground mt-2">No posts found.</p>}
+                    </div>
+                )}
                 <PostList posts={posts} />
             </div>
         </main>
