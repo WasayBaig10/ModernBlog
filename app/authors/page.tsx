@@ -27,7 +27,7 @@ export default async function AuthorsPage() {
                 {authorsWithPosts.length > 0 ? (
                     <>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {authorsWithPosts.map((author, index) => (
+                            {authorsWithPosts.map((author: AuthorWithPosts, index: number) => (
                                 <AuthorCard key={author._id} author={author} />
                             ))}
                         </div>
